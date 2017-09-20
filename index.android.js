@@ -11,27 +11,33 @@ import {
   Text,
   View
 } from 'react-native';
+import StreetView from 'react-native-streetview';
 
 export default class GoogleStreetExample extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <StreetView
+          style={styles.streetView}
+          allGesturesEnabled={true}
+          coordinate={{
+            'latitude': -33.852,
+            'longitude': 151.211
+          }}
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  streetView:{
+    position: 'absolute',
+    left: 50,
+    right: 50,
+    top: 20,
+    bottom: 20
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
